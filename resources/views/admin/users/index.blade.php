@@ -7,7 +7,7 @@
 
     <div class="card">
             <div class="card-header">
-                    Listado de usuarios usuario
+                    Listado de usuarios
                 </div>
         <div class="card-body">
             <a href="{{route('users.create')}}" class="btn btn-info">Registro de nuevo usuario</a>
