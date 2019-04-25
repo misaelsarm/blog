@@ -6,9 +6,10 @@
 <div class="container">
 
     <div class="card">
-            <div class="card-header">
-                    Listado de usuarios - Admin
-                </div>
+        @include('flash::message')
+        <div class="card-header">
+            Listado de usuarios
+        </div>
         <div class="card-body">
             <a href="{{route('users.create')}}" class="btn btn-info">Registro de nuevo usuario</a>
             <hr>
