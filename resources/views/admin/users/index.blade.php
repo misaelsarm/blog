@@ -5,7 +5,7 @@
 @section('formulario')
 <div class="container">
 
-    <div class="card">
+    <div class="card sombra">
         @include('flash::message')
         <div class="card-header">
             Listado de usuarios
@@ -35,7 +35,8 @@
                             <span class="badge badge-danger">{{$user->type}}</span>
                             @endif
                         </td>
-                        <td><a href="" class="btn btn-danger"></a><a href="" class="btn btn-primary"></a></td>
+                        <td><a href="{{route('users.edit', $user->id)}}" class="btn btn-primary " ><i class="fas fa-user-edit" ></i></a>
+                            <a href="{{route('users.destroy', $user->id)}}" class="btn btn-danger" onclick="return confirm('¿Seguro que deseas eliminar este usuario de manera permanente?')"><i class="fas fa-user-times"></i></a></td>
                     </tr>
                     @endforeach
                 </tbody>

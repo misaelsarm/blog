@@ -1,5 +1,3 @@
-
-
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
     <div class="container">
         <a class="navbar-brand" href="#">Blog Personal</a>
@@ -22,12 +20,16 @@
                 <li class="nav-item active">
                     <a class="nav-link" href="#">Mas <span class="sr-only">(current)</span></a>
                 </li>
-                
+
             </ul>
-            <form class="form-inline my-2 my-lg-0">
-                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-            </form>
+            <span class="navbar-item ">
+                <a class="nav-link" href="#">Mas <span class="sr-only">(current)</span></a>
+
+            </span>
+            <span class="navbar-item ">
+                <a class="nav-link" href="#">Mas <span class="sr-only">(current)</span></a>
+
+            </span>
         </div>
 </nav>
 </div>
