@@ -6,7 +6,18 @@
 
 
 <div class="container">
+
     <div class="card sombra">
+        @if(count($errors)>0)
+        <div class="alert alert-danger" role="alert">
+            <ul>
+                @foreach($errors->all() as $error)
+                <li>{{$error}}</li>
+                @endforeach
+            </ul>
+        </div>
+
+        @endif
         <div class="card-header">
             Registrar un nuevo usuario
         </div>
@@ -14,8 +25,6 @@
 
             <a href="{{route('users.index')}}" class="btn btn-info">Listado de usuarios</a>
             <hr>
-
-
 
             {!! Form::open(['route'=>'users.store', 'method'=>'POST']) !!}
 

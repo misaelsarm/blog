@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="{{asset('plugins/bootstrap/css/bootstrap.css')}}">
 </head>
 
-<body>
+<body class="fondo">
     @include('admin.templates.partials.nav')
     <section>
 
