@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\User;
 use Illuminate\Http\Request;
 use Laracasts\Flash\Flash;
+Use App\Http\Requests\UserRequest;
 
 class UsersController extends Controller
 {
@@ -37,7 +38,7 @@ class UsersController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(UserRequest $request)
     {
 
         $user = new User($request->all());
@@ -70,7 +71,7 @@ class UsersController extends Controller
         //
 
         $user = User::find($id);
-        return view('admin.users.edit') ->with('user', $user);
+        return view('admin.users.edit')->with('user', $user);
     }
 
     /**
@@ -83,6 +84,15 @@ class UsersController extends Controller
     public function update(Request $request, $id)
     {
         //
+
+        $user = User::find($id);
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->type = $request->type;
+        $user->save();
+
+        flash("El usuario " . $user->name . " se actualizo exitosamente")->success();
+        return redirect()->route('users.index');
     }
 
     /**
@@ -95,9 +105,9 @@ class UsersController extends Controller
     {
         //
         $user = User::find($id);
-        $user -> delete();
+        $user->delete();
 
-        Flash::error("El usuario "  . $user->name . " se elimino exitosamente");
+        flash("El usuario " . $user->name . " se elimino exitosamente")->error();
         return redirect()->route('users.index');
     }
 }
