@@ -1,23 +1,20 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>@yield('title','Default') | Admin</title>
     <link href="{{ asset('/css/app.css') }}" rel="stylesheet">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+        integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
     <link rel="stylesheet" href="{{asset('plugins/bootstrap/css/bootstrap.css')}}">
 </head>
 
 <body class="fondo">
-    @include('admin.templates.partials.nav')
-    <section>
 
-        @yield('formulario')
-
-    </section>
+    @yield('content')
+    
 
     <script src="{{asset('plugins/jquery/js/jquery-3.4.0.js')}}"></script>
 

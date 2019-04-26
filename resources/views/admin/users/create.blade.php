@@ -1,23 +1,10 @@
 @extends('admin.templates.main')
-
+@extends('admin.templates.partials.nav')
 @section('title', 'Registrar nuevo usuario')
 
-@section('formulario')
-
-
+@section('content')
 <div class="container">
-
     <div class="card sombra">
-        @if(count($errors)>0)
-        <div class="alert alert-danger" role="alert">
-            <ul>
-                @foreach($errors->all() as $error)
-                <li>{{$error}}</li>
-                @endforeach
-            </ul>
-        </div>
-
-        @endif
         <div class="card-header">
             Registrar un nuevo usuario
         </div>
@@ -54,10 +41,9 @@
                 {!! Form::submit('Registrar', ['class'=>'btn btn-primary'] ) !!}
 
             </div>
+            {!!Form::close() !!}
         </div>
     </div>
 </div>
-
-{!!Form::close() !!}
 
 @endsection

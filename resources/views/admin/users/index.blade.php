@@ -1,10 +1,9 @@
 @extends('admin.templates.main')
-
+@extends('admin.templates.partials.nav')
 @section('title', 'Lista de usuarios')
 
-@section('formulario')
+@section('content')
 <div class="container">
-
     <div class="card sombra">
         @include('flash::message')
         <div class="card-header">
@@ -41,8 +40,6 @@
                     @endforeach
                 </tbody>
             </table>
-
-
             {!! $users->render() !!}
         </div>
     </div>

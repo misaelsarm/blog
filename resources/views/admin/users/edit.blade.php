@@ -1,10 +1,8 @@
 @extends('admin.templates.main')
-
+@extends('admin.templates.partials.nav')
 @section('title', 'Editar usuario ' . $user->name)
 
-@section('formulario')
-
-
+@section('content')
 <div class="container">
     <div class="card sombra">
         <div class="card-header">
@@ -31,14 +29,11 @@
                 !!}
             </div>
 
-
-
             <div class="form-group">
                 {!!Form::label('type', 'tipo')!!}
                 {!!Form::select('type', ['' => 'Selecciona una opcion', 'member' => 'Miembro',
                 'admin'=>'Administrador'], $user->type, ['class'=>'form-control']) !!}
             </div>
-
             <div class="form-group">
                 {!! Form::submit('Actualizar datos', ['class'=>'btn btn-primary'] ) !!}
 
@@ -46,7 +41,5 @@
         </div>
     </div>
 </div>
-
 {!!Form::close() !!}
-
 @endsection
