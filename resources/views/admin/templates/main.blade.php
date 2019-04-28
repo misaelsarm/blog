@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,9 +13,24 @@
 </head>
 
 <body class="fondo">
-
-    @yield('content')
-    
+    @include('admin.templates.partials.nav')
+    <section>
+        <div class="container">
+            <div class="card sombra">
+                <div class="card-header">
+                    @yield('titulo')
+                </div>
+                <div class="card-body">
+                    @include('flash::message')
+                    @include('admin.templates.partials.errors')
+                    @yield('content')
+                </div>
+            </div>
+        </div>
+        <div>
+            @yield('jumbotron')
+        </div>
+    </section>
 
     <script src="{{asset('plugins/jquery/js/jquery-3.4.0.js')}}"></script>
 

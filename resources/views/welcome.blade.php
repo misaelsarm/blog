@@ -1,12 +1,7 @@
 @extends('admin.templates.main')
-@extends('admin.templates.partials.nav')
-@section('title')
+@section('title', 'Home')
 
-Home
-
-@endsection
-
-@section('content')
+@section('jumbotron')
 <div class="container">
     <div class="jumbotron">
         <h1 class="display-4">Hello, world!</h1>
