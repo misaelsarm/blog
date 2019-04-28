@@ -1,17 +1,15 @@
 @extends('admin.templates.main')
-
-@section('title', 'Agregar Categoria')
+@section('title', 'Registrar nuevo tag')
 
 @section('titulo')
-<h2>Registro de una nueva categoria</h2>
+    Registrar un nuevo tag
 @endsection
 
 @section('content')
-
-<a href="{{route('categories.index')}}" class="btn btn-info">Listado de categorias</a>
-                   
+<a href="{{route('tags.index')}}" class="btn btn-info">Lista de tags</a>
 <hr>
-{!! Form::open(['route'=>'categories.store', 'method'=>'POST']) !!}
+
+{!! Form::open(['route'=>'tags.store', 'method'=>'POST']) !!}
 
 <div class="form-group">
     {!!Form::label('name', 'Nombre') !!}

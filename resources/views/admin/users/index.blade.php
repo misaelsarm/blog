@@ -40,5 +40,8 @@ Listado de usuarios
         @endforeach
     </tbody>
 </table>
-{!! $users->render() !!}
+<div class="d-flex justify-content-center">
+    {!! $users->render() !!}
+</div>
+
 @endsection

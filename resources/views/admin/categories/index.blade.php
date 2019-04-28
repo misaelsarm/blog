@@ -27,4 +27,8 @@ Lista de categorias
         @endforeach
     </tbody>
 </table>
+<div class="d-flex justify-content-center">
+    {!! $categories->render() !!}
+</div>
+
 @endsection
