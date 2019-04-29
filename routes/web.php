@@ -38,6 +38,11 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
         'uses' => 'TagsController@destroy',
         'as' => 'tags.destroy',
     ]);
+    Route::resource('articles', 'ArticlesController');
+    Route::get('tags/{id}/destroy', [
+        'uses' => 'TagsController@destroy',
+        'as' => 'tags.destroy',
+    ]);
 
 });
 

@@ -1,24 +1,25 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Tag;
-use Illuminate\Http\Request;
-use Laracasts\Flash\Flash;
-use App\Http\Requests\TagRequest;
 
-class TagsController extends Controller
+use App\Category;
+use App\Tag;
+use App\Article;
+use App\Image;
+use Laracasts\Flash\Flash;
+use Illuminate\Http\Request;
+
+class ArticlesController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    public function index()
     {
         //
-    
-        $tags = Tag::search($request->name)->orderBy('id', 'DESC')->paginate(5);
-        return view('admin.tags.index')->with('tags', $tags);
+        return view('admin.articles.index');
     }
 
     /**
@@ -29,7 +30,9 @@ class TagsController extends Controller
     public function create()
     {
         //
-        return view('admin.tags.create');
+        $categories = Category::orderBy('name', 'ASC')->pluck('name', 'id');
+        $tags = Tag::orderBy('name', 'ASC')->pluck('name', 'id');
+        return view('admin.articles.create')->with('categories', $categories)->with('tags', $tags);
     }
 
     /**
@@ -38,15 +41,31 @@ class TagsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(TagRequest $request)
+    public function store(Request $request)
     {
-        //
-        $tag = new Tag($request->all());
-    
-        $tag->save();
-        flash("Se ha registrado el tag " . $tag->name . " de forma exitosa")->success();
+        
+        //Manipulacion de imagenes
+        if ($request->file('image')) {
+            $file = $request->file('image');
+            $name = 'blogfacilito_' . time() . '.' . $file->getClientOriginalExtension();
+            $path = public_path() . '/images/articles/';
+            $file->move($path, $name);
+        }
 
-        return redirect()->route('tags.index');
+        $article = new Article($request->all());
+        $article->user_id = \Auth::user()->id;
+
+        $article->save();
+
+        $article->tags()->sync($request->tags);
+
+        $image = new Image();
+        $image->name = $name;
+        $image->article()->associate($article);
+        $image->save();
+
+        flash("Se publico el articulo " . $article->title . " de forma exitosa")->success();
+        return redirect()->route('articles.index');
     }
 
     /**
@@ -69,8 +88,6 @@ class TagsController extends Controller
     public function edit($id)
     {
         //
-        $tag = Tag::find($id);
-        return view('admin.tags.edit')->with('tag', $tag);
     }
 
     /**
@@ -83,12 +100,6 @@ class TagsController extends Controller
     public function update(Request $request, $id)
     {
         //
-        $tag = Tag::find($id);
-        $tag->name = $request->name;
-        $tag->save();
-
-        flash("El tag " . $tag->name . " se actualizo exitosamente")->success();
-        return redirect()->route('tags.index');
     }
 
     /**
@@ -100,10 +111,5 @@ class TagsController extends Controller
     public function destroy($id)
     {
         //
-        $tag = Tag::find($id);
-        $tag->delete();
-
-        flash("El tag " . $tag->name . " se elimino exitosamente")->error();
-        return redirect()->route('tags.index');
     }
 }
