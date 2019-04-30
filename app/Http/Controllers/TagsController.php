@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Tag;
 use Illuminate\Http\Request;
 use Laracasts\Flash\Flash;

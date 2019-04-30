@@ -21,6 +21,9 @@
                 <li class="nav-item active">
                     <a class="nav-link" href="/admin/tags">Tags <span class="sr-only">(current)</span></a>
                 </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="/admin/articles">Articulos <span class="sr-only">(current)</span></a>
+                </li>
             </ul>
             <ul class="navbar-nav ml-auto">
                 <!-- Authentication Links -->

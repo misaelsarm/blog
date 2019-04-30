@@ -10,6 +10,8 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
         integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
     <link rel="stylesheet" href="{{asset('plugins/bootstrap/css/bootstrap.css')}}">
+    <link rel="stylesheet" href="{{asset('plugins/chosen/chosen.css')}}">
+    <link rel="stylesheet" href="{{asset('plugins/trumbowyg/Trumbowyg-master/dist/ui/trumbowyg.css')}}">
 </head>
 
 <body class="fondo">
@@ -33,8 +35,12 @@
     </section>
 
     <script src="{{asset('plugins/jquery/js/jquery-3.4.0.js')}}"></script>
-
+    <script src="{{asset('plugins/chosen/chosen.jquery.js')}}"></script>
     <script src="{{asset('plugins/bootstrap/js/bootstrap.js')}}"></script>
+    <script src="{{asset('plugins/trumbowyg/Trumbowyg-master/dist/trumbowyg.js')}}"></script>
+    
+
+    @yield('js')
 
 </body>
 

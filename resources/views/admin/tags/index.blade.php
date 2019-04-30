@@ -11,7 +11,7 @@ Tags
 <hr>
 {!! Form::open(['route'=>'tags.index', 'method'=>'GET', 'class'=>'navbar-form pull-right'])!!}
 <div class="input-group">
-    
+
     {!!Form::text('name', null, ['class'=> 'form-control', 'placeholder'=>'buscar tags', 'aria-describedby'=>'search'])
     !!}
     <span class="input-group-text" id="search"><i class="fas fa-search"></i></span>
